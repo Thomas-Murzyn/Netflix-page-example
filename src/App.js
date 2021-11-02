@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Header from "./components/Header";
+import logo from "./logo-netflix.png";
+import Section from "./components/Section";
+import movies from "./movies.json";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="content">
+      <Header logo={logo} />
+      {movies.map((list, index) => {
+        return (
+          <Section key={index} category={list.category} movies={list.images} />
+        );
+      })}
     </div>
   );
 }
